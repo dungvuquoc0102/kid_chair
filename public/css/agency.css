@@ -1,0 +1,194 @@
+.bannerAgency {
+	margin: 30px 0;
+	/* border-top: 1px solid #55555555; */
+	position: relative;
+}
+
+.bannerAgency-layer {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
+.bannerAgency-layer h1 {
+	margin-bottom: 20px;
+	font-size: 50px;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.bannerAgency-layer p {
+	margin-bottom: 20px;
+}
+
+.bannerAgency-layer a {
+	border-radius: 10px;
+}
+
+/* benefitAgency  */
+.benefitAgency {
+	padding: 30px 0;
+}
+
+.benefitAgency-container .benefitAgency-heading {
+	text-align: center;
+	color: var(--primary-color);
+}
+
+.benefitAgency-container .benefitAgency-heading h2 {
+	font-weight: 400;
+	font-size: 40px;
+	margin-bottom: 20px;
+	line-height: 1;
+}
+
+.benefitAgency-container .benefitAgency-heading h3 {
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+.benefitAgency-container .benefitAgency-content {
+	background-image: url(../images/agency/agency-benefit-img.png);
+	height: 500px;
+	overflow: hidden;
+	background-position: 50% 50%;
+}
+
+.benefitAgency-container .benefitAgency-content ul {
+	background-color: var(--primary-color);
+	display: inline-block;
+	text-align: left;
+	list-style: disc;
+	padding: 15px;
+	width: 45%;
+	margin-top: 10%;
+	margin-left: 5%;
+	height:fit-content;
+}
+
+.benefitAgency-container .benefitAgency-content ul li {
+	/* display: inline-block; */
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+/* signupAgency  */
+.signupAgency {
+	position: relative;
+	padding: 50px 0;
+}
+
+.signupAgency .signupAgency-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: url(../images/agency/signupAgency-bg.png);
+	background-position: 50% 50%;
+}
+
+.signupAgency .signupAgency-content {
+	position: relative;
+	width: 100%;
+	background-color: transparent;
+	/* z-index: 1; */
+}
+
+.signupAgency-content .signupAgency-container {
+	background-color: #fff;
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	padding: 30px 0;
+}
+
+.signupAgency-container .signupAgency-left {
+	color: #000;
+	padding: 0 30px 30px;
+}
+
+.signupAgency-container .signupAgency-left ul {
+	list-style: disc;
+}
+
+.signupAgency-container .signupAgency-left ul li {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.signupAgency-container .signupAgency-right {
+	color: var(--primary-color);
+	padding: 0 30px 30px;
+}
+
+.signupAgency-container .signupAgency-right h2 {
+	font-weight: 400;
+}
+
+.signupAgency-container .signupAgency-right form .signupAgency-input {
+	display: block;
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 15px 0;
+	border: 1px solid rgba(0,0,0,.09);
+	font-size: 15px;
+	outline: none;
+	background-color: rgba(0,0,0,.03);
+}
+
+/* photoAgency  */
+.photoAgency {
+	position: relative;
+}
+
+.photoAgency .photoAgency-bg {
+	
+}
+
+.photoAgency .photoAgency-content {
+	position: relative;
+	width: 100%;
+	background-color: transparent;
+}
+
+.photoAgency-content .photoAgency-container {
+	background-color: #fff;
+	padding: 30px 0;
+	text-align: center;
+}
+
+.photoAgency-content .photoAgency-container .photoAgency-heading h2 {
+	color: var(--primary-color);
+	font-size: 40px;
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+.photoAgency-content .photoAgency-container .photoAgency-top {
+	display: flex;
+}
+
+.photoAgency-content .photoAgency-container .photoAgency-top .photoAgency-img {
+	padding: 0 15px 30px;
+}
+
+.photoAgency-content .photoAgency-container .photoAgency-bottom {
+	display: flex;
+}
+
+.photoAgency-container .photoAgency-bottom .photoAgency-left {
+	
+}
+
+.photoAgency-container .photoAgency-bottom .photoAgency-left .photoAgency-img {
+	padding: 0 15px 30px;
+}
+
+.photoAgency-container .photoAgency-bottom .photoAgency-right {
+	padding: 0 15px 30px;
+}
