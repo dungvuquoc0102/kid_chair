@@ -1,240 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('customer.Layout')
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+@section('title')	
+	<title>Chi tiết sản phẩm - KissCat</title>
+@endsection
 
-	<!-- slide css  -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-
-	<!-- css  -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/product.css">
-
-	<!-- css fontawesome  -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-	<!-- script fontawesome  -->
-	<script src="https://kit.fontawesome.com/6cea374d55.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+@section('link_css')
+	<link rel="stylesheet" href="{{ url('/css/product.css') }}">
+@endsection
 </head>
 
-<body>
-	<div class="wrapper">
-	<?php include("customerheader.php") ?>
-		<main>
-			<section class="product">
-				<div class="container">
-					<div class="product-container">
-						<div class="product-img">
-							<div class="product-img-main">
-                                @for($i = 0; $i < 5; ++$i)
-                                    <div class="product-img-item">
-                                        <img src="{{URL::asset($product->image)}}" alt="">
-                                    </div>
-                                @endfor
-								
+@section('main_content')
+	<section class="product">
+		<div class="container">
+			<div class="product-container">
+				<div class="product-img">
+					<div class="swiper swiper2">
+						<div class="swiper-wrapper">
+						@for($i = 0; $i < 5; ++$i)
+							<div class="swiper-slide">
+								<img src="{{URL::asset($product->image)}}" alt="">
 							</div>
-							<div class="product-img-list">
-                                @for($i = 0; $i < 5; ++$i)
-                                    <div class="product-img-item">
-                                        <img src="{{URL::asset($product->image)}}" alt="">
-                                    </div>
-                                @endfor
-							</div>
-						</div>
-						<div class="product-detail">
-							<div class="product-detail-category">
-								<a href="/Home"> Trang chủ</a>
-								<span> / </span>
-								<a href="/ProductList"> Sản phẩm</a>
-								<span> / </span>
-								<a href=""> Ghế ngồi</a>
-							</div>
-							<div class="product-detail-name">
-								{{$product->name}}
-							</div>
-							<div class="product-detail-price">
-								<span class="price-number"> {{$product->price}}</span>
-								<span class="price-unit">VNĐ</span>
-							</div>
-							<div class="product-detail-desc">
-								{!!Str::limit($product->description,200)!!}
-							</div>
-							<div class="product-detail-label">
-								<div class="detail-label-name">
-									Màu sắc
-								</div>
-								<select name="label-color" id="label-color">
-									<option>Chọn một tùy chọn</option>
-									<option value="red">Đỏ</option>
-									<option value="orange">Cam</option>
-									<option value="yellow">Vàng</option>
-								</select>
-							</div>
-							<div class="product-detail-button button">Mua ngay</div>
+						@endfor
 						</div>
 					</div>
-
-				</div>
-			</section>
-			<section class="description">
-				<div class="container">
-					<div class="description-container">
-						<div class="description-left">
-							<div class="description-main">Mô tả</div>
-							<div class="description-more">Thông tin bổ sung</div>
-						</div>
-						<div class="description-right">
-							{!!$product->description!!}
-						</div>
+					<div class="product-img-list">
+						@for($i = 0; $i < 5; ++$i)
+							<div class="product-img-item">
+								<img src="{{URL::asset($product->image)}}" alt="">
+							</div>
+						@endfor
 					</div>
 				</div>
-			</section>
-			<section class="similarPro">
-				<div class="container">
-					<div class="similarPro-container">
-						<h3 class="similarPro-heading">Sản phẩm tương tự</h3>
-						<div class="similarPro-list">
-                            @foreach($same_products as $product)
-                                <a href="/ProductDetail/{{$product->product_id}}" class="product-item">
-                                    <img style="width:200px; height: 200px;" src="{{URL::asset($product->image)}}" alt=""
-                                        class="category-product-img">
-                                    <div class="category-product-detail">
-                                        <p class="category-product-name">{{$product->name}}</p>
-                                        <div class="category-product-price"><span class="price-number"> {{$product->price}}
-                                            </span><span class="price-unit">VNĐ</span></div>
-                                    </div>
-                                </a>
-                            @endforeach
-						</div>
+				<div class="product-detail">
+					<div class="product-detail-category">
+						<a href="/Home"> Trang chủ</a>
+						<span> / </span>
+						<a href="/ProductList"> Sản phẩm</a>
+						<span> / </span>
+						<a href=""> Ghế ngồi</a>
 					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-container">
-					<div class="footer-column">
-						<div class="footer-logo">
-							<img src="/images/logo.png" alt="">
-						</div>
-						<p class="footer-company">
-							Công ty Cổ phần Công nghệ Wiibike Việt Nam
-						</p>
-						<p class="footer-adress">
-							Wiibike Center 1: 81 Nhật Chiêu, Tây Hồ, TP. Hà Nội
-						</p>
-						<p class="footer-adress">
-							Văn Phòng: Tầng M3 Tòa nhà CT1, KĐT Mỹ Đình - Mễ Trì, P. Mỹ Đình 1, Q. Nam Từ Liêm, TP. Hà
-							Nội
-						</p>
-						<div class="footer-contact">
-							<a href="" class="contact-item">
-								<i class="fas fa-phone contact-item-icon"></i>
-								<span class="contact-item-text">0969 969 969</span>
-							</a>
-							<a href="" class="contact-item">
-								<i class="fas fa-envelope contact-item-icon"></i>
-								<span class="contact-item-text">Info@kisscat.com</span>
-							</a>
-						</div>
-						<div class="footer-social">
-							<a href="" class="social-item">
-								<i class="fab fa-facebook-square"></i>
-							</a>
-							<a href="" class="social-item">
-								<i class="fab fa-youtube"></i>
-							</a>
-							<a href="" class="social-item">
-								<i class="fab fa-twitter"></i>
-							</a>
-						</div>
+					<div class="product-detail-name">
+						{{$product->name}}
 					</div>
-					<div class="footer-column">
-						<div class="footer-row">
-							<div class="footer-heading">Chính sách</div>
-							<ul class="footer-links">
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách bảo hành - bảo dưỡng</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách đổi trả</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách vận chuyển</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách bảo mật</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách trả góp</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Chính sách thanh toán</a>
-								</li>
-							</ul>
-						</div>
+					<div class="product-detail-price">
+						<span class="price-number"> {{$product->price}}</span>
+						<span class="price-unit">VNĐ</span>
 					</div>
-					<div class="footer-column">
-						<div class="footer-row">
-							<div class="footer-heading">Tin tức</div>
-							<ul class="footer-links">
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Blog kiến thức</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Tin mới nhất</a>
-								</li>
-							</ul>
-						</div>
-						<div class="footer-row">
-							<div class="footer-heading">Hỗ trợ</div>
-							<ul class="footer-links">
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">FAQ</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Danh sách đại lý</a>
-								</li>
-								<li class="footer-item">
-									<i class="fas fa-chevron-right footer-arrow-icon"></i>
-									<a href="">Hướng dẫn sử dụng</a>
-								</li>
-							</ul>
-						</div>
+					<div class="product-detail-desc">
+						{!!Str::limit($product->description,200)!!}
 					</div>
-					<div class="footer-column">
-						<div class="footer-iframe-facebook">
-							<iframe
-								src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDior&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=825283535029437"
-								width="250" height="300" style="border:none;overflow:hidden" scrolling="no"
-								frameborder="0" allowfullscreen="true"
-								allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+					<div class="product-detail-label">
+						<div class="detail-label-name">
+							Màu sắc
 						</div>
+						<select name="label-color" id="label-color">
+							<option>Chọn một tùy chọn</option>
+							<option value="red">Đỏ</option>
+							<option value="orange">Cam</option>
+							<option value="yellow">Vàng</option>
+						</select>
 					</div>
+					<div class="product-detail-button button">Mua ngay</div>
 				</div>
 			</div>
-		</footer>
-	</div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script type="text/javascript" src="/script/app.js"></script>
-</body>
 
-</html>
+		</div>
+	</section>
+	<section class="description">
+		<div class="container">
+			<div class="description-container">
+				<div class="description-left">
+					<div class="description-main">Mô tả</div>
+					<div class="description-more">Thông tin bổ sung</div>
+				</div>
+				<div class="description-right">
+					{!!$product->description!!}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="similarPro">
+		<div class="container">
+			<div class="similarPro-container">
+				<h3 class="similarPro-heading">Sản phẩm tương tự</h3>
+				<div class="similarPro-list">
+					@foreach($same_products as $product)
+						<a href="/ProductDetail/{{$product->product_id}}" class="product-item">
+							<img style="width:200px; height: 200px;" src="{{URL::asset($product->image)}}" alt=""
+								class="category-product-img">
+							<div class="category-product-detail">
+								<p class="category-product-name">{{$product->name}}</p>
+								<div class="category-product-price"><span class="price-number"> {{$product->price}}
+									</span><span class="price-unit">VNĐ</span></div>
+							</div>
+						</a>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</section>
+@endsection

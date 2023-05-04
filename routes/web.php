@@ -8,6 +8,7 @@ use App\Http\Controllers\NewsC;
 use App\Http\Controllers\CategoryC;
 use App\Http\Controllers\SubCategoryC;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\IntroC;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,3 +82,7 @@ Route::get('/AddSubCategory',[SubCategoryC::class,'subCategoryAddForm']);
 Route::post('/AddSubCategory',[SubCategoryC::class, 'subCategoryAdd']);
 Route::get('/EditSubCategory',[SubCategoryC::class, 'subCategoryEditForm']);
 Route::post('/EditSubCategory',[SubCategoryC::class, 'subCategoryEdit']);
+
+//intro
+Route::get('/Intro', [IntroC::class, 'introCompany']);
+Route::get('/Intro/Detail', [IntroC::class, 'introCompanyDetail']);

@@ -1,0 +1,25 @@
+.intro-cover {
+    margin: 0px 20px;
+    padding: 30px 0px;
+    border-top: 1px solid #55555555;
+    color: #000;
+}
+
+.intro img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.intro-cover h2 {
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.intro-cover p {
+    margin-bottom: 15px;
+}
+
+.intro-cover li {
+    margin-bottom: 10px;
+}

@@ -16,7 +16,7 @@ $category_headers = $subCategoryObject->getCategoryHeader();
 				<ul>
 					<li>
 						<div>
-							<a class="header-cate" href="#">Giới thiệu </a>
+							<a class="header-cate" href="<?php echo url('/Intro') ?>">Giới thiệu </a>
 							<span class="button_show_menu_1">
 								<i class="fas fa-angle-down header-arr-down"></i>
 							</span>
@@ -25,7 +25,7 @@ $category_headers = $subCategoryObject->getCategoryHeader();
 							<li>
 								<!-- <a class="header-menu-key" href="">Sản phẩm</a> -->
 								<ul class="header-sub-sub-menu">
-									<li><a href="">Ghế ngồi Việt Nam</a></li>
+									<li><a href="<?php echo url('/Intro/Detail') ?>">Ghế ngồi Việt Nam</a></li>
 									<li><a href="">Công nghệ</a></li>
 									<li><a href="">Danh sách đại lí</a></li>
 									<li><a href="">Trung tâm bảo dưỡng - sửa chữa</a></li>

@@ -1,0 +1,80 @@
+.intro {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.intro .intro-bg {
+    background-image: url("../images/intro_2/bg-intro_2.png");
+    background-size: cover;
+    background-position: 50% 50%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.intro .intro-content {
+    width: 50%;
+    padding: 10% 20px;
+    z-index: 1;
+    /* text-align: center; */
+}
+
+.intro-content .intro-cover h3 {
+    margin: 10px 5px;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.intro-content .intro-cover p {
+    margin: 10px 5px;
+}
+
+.intro-desc {
+    padding: 30px 0;
+}
+
+.intro-desc .intro-desc-content {
+    padding: 0 15px;
+}
+
+.intro-desc .intro-desc-content .intro-desc-cover {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.intro-desc-cover .box-cover {
+    padding: 0 20px 40px;
+    text-align: center;
+}
+
+.intro-desc-cover .box-cover .box-shadow-hover {
+    display: block;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+}
+
+.intro-desc-cover .box-cover .box-img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.intro-desc-cover .box-cover .box-img h2 {
+    padding: 20px 0;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+    .intro-desc .intro-desc-content .intro-desc-cover {
+        grid-template-columns: 1fr 1fr;
+    }
+}
