@@ -114,15 +114,19 @@ class ProductC extends Controller
         $product_sub_categories = DB::table('sub_category')
         ->join('category', 'sub_category.category_id', '=', 'category.category_id')
         ->where('category.name', $this->CATEGORY['PRODUCT'])->select("sub_category.*")->get();
-        return view('customer/ProductList',compact('products', 'product_sub_categories', 'orderBy', 'sub_category_id'));
+        $category_id = DB::table('sub_category')->where('sub_category_id', $sub_category_id)->first()->category_id;
+        $sub_categories = DB::table('sub_category')->where('category_id', $category_id)->get();
+        return view('customer/ProductList',compact('products', 'product_sub_categories', 'orderBy', 'sub_category_id', 'sub_categories'));
     }
 
     // detail product
     public function productDetail($product_id){
         $product = DB::table('product')->where('product_id',$product_id)->first();
+        $category_name = DB::table('category')->where('category_id', $product->category_id)->first()->name;
+        $sub_category_name = DB::table('sub_category')->where('sub_category_id', $product->sub_category_id)->first()->name;
         $same_products = DB::table('product')->where('sub_category_id', $product->sub_category_id)
         ->where('product_id','!=',$product_id)->take(5)->get();
-        return view('customer/ProductDetail',compact('product', 'same_products'));
+        return view('customer/ProductDetail',compact('product', 'same_products', 'category_name', 'sub_category_name'));
     }
 }
 

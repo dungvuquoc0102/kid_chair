@@ -15,6 +15,10 @@
     font-size: 25px;
 }
 
+.is-bold {
+    font-weight: bold;
+}
+
 *::before,
 *::after {
     box-sizing: border-box;

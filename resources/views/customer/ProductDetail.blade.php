@@ -22,28 +22,32 @@
 							</div>
 						@endfor
 						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
 					</div>
-					<div class="product-img-list">
+					<div class="swiper swiper1">
+						<div class="swiper-wrapper">
 						@for($i = 0; $i < 5; ++$i)
-							<div class="product-img-item">
+							<div class="swiper-slide">
 								<img src="{{URL::asset($product->image)}}" alt="">
 							</div>
 						@endfor
+						</div>
 					</div>
 				</div>
 				<div class="product-detail">
 					<div class="product-detail-category">
-						<a href="/Home"> Trang chủ</a>
+						<a href="{{ url('/') }}"> Trang chủ</a>
 						<span> / </span>
-						<a href="/ProductList"> Sản phẩm</a>
+						<a href="#"> {{ $category_name }}</a>
 						<span> / </span>
-						<a href=""> Ghế ngồi</a>
+						<a href="{{ url('/ProductList/' . $product->sub_category_id . '/product_id') }}"> {{ $sub_category_name }}</a>
 					</div>
 					<div class="product-detail-name">
 						{{$product->name}}
 					</div>
 					<div class="product-detail-price">
-						<span class="price-number"> {{$product->price}}</span>
+						<span class="price-number"> {{ number_format($product->price, 0) }}</span>
 						<span class="price-unit">VNĐ</span>
 					</div>
 					<div class="product-detail-desc">
@@ -74,7 +78,20 @@
 					<div class="description-more">Thông tin bổ sung</div>
 				</div>
 				<div class="description-right">
-					{!!$product->description!!}
+					<div class="description-main-detail">
+						{!!$product->description!!}
+					</div>
+					<div class="description-more-detail">
+						<p>
+							Ghế ngồi trẻ em nam KissCat WALL.E KID.
+							<br><br>
+							Kiểu dáng khỏe khoắn, chất liệu an toàn.
+							<br><br>
+							Kích thước xe phù hợp cho các bé từ 4-11 tuổi.
+							<br><br>
+							Xuất xứ: Việt Nam.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -90,7 +107,7 @@
 								class="category-product-img">
 							<div class="category-product-detail">
 								<p class="category-product-name">{{$product->name}}</p>
-								<div class="category-product-price"><span class="price-number"> {{$product->price}}
+								<div class="category-product-price"><span class="price-number"> {{ number_format($product->price,0) }}
 									</span><span class="price-unit">VNĐ</span></div>
 							</div>
 						</a>

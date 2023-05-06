@@ -3,12 +3,14 @@
 const toggle = document.querySelector(".header-menu-toggle");
 const menu = document.querySelector(".header-menu");
 const activeClass = "is-show";
+var menu_respionsive = null;
 toggle.addEventListener("click", () => {
     menu.classList.add(activeClass);
+    menu_responsive = document.querySelector(".header-menu.is-show");
 });
 window.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !e.target.matches(".fas.fa-bars.icon-menu")) {
-        menu.classList.remove(activeClass);
+    if (!menu_responsive.contains(e.target) && !e.target.matches(".fas.fa-bars.icon-menu")) {
+        menu_responsive.classList.remove(activeClass);
         header_sub_menu.style.display = "none";
         header_sub_menu_2.style.display = "none";
     }

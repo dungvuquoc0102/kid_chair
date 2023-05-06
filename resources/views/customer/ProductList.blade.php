@@ -37,10 +37,11 @@
 					<div class="category-content-left">
 						<p class="content-title">Danh mục sản phẩm</p>
 						<ul class="content-title-list">
-							@foreach($product_sub_categories as $product_sub_category)
-								<li class="content-item">
+							@foreach($sub_categories as $product_sub_category)
+								<li   class="content-item {{ $product_sub_category->sub_category_id == $sub_category_id ? 'is-bold' : '' }}">
 									<a href="/ProductList/{{$product_sub_category->sub_category_id}}/{{$orderBy}}">
 										{{$product_sub_category->name}}
+										
 									</a>
 								</li>
 							@endforeach
@@ -53,7 +54,7 @@
 									class="category-product-img" style="height: 300px; width: 100%;">
 								<div class="category-product-detail">
 									<p class="category-product-name">{{$product->name}}</p>
-									<div class="category-product-price"><span class="price-number"> {{$product->price}}
+									<div class="category-product-price"><span class="price-number"> {{ number_format($product->price, 0) }}
 										</span><span class="price-unit">VNĐ</span></div>
 								</div>
 							</a>

@@ -95,7 +95,9 @@ class NewsC extends Controller
     }
 
     public function newsList($news_sub_category_id){
-        if($news_sub_category_id==0) $news = DB::table('news')->orderBy('news_id','desc')->paginate(1);
+        if($news_sub_category_id == 0) {
+            $news = DB::table('news')->orderBy('news_id','desc')->paginate(4);
+        }
         else{
             $news = DB::table('news')->where('sub_category_id', $news_sub_category_id)
             ->orderBy('news_id','desc')->paginate(6);
