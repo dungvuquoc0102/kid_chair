@@ -154,3 +154,9 @@ if (button_show_menu_2 && header_sub_menu_2) {
         }
     });
 }
+
+//sắp xếp sản phẩm trong danh mục sản phẩm
+$("#product-list").change(function () {
+    let orderBy = $(this).val();
+    window.location.href = "/ProductList/" + orderBy;
+});

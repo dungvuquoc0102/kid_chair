@@ -110,13 +110,15 @@ class ProductC extends Controller
 
     // get list product
     public function productList($sub_category_id, $orderBy){
-        $products = DB::table('product')->where('sub_category_id', $sub_category_id)->orderBy($orderBy,'desc')->paginate(4);
+        $products = DB::table('product')->where('sub_category_id', $sub_category_id)->orderBy($orderBy,'desc')->paginate(3);
         $product_sub_categories = DB::table('sub_category')
         ->join('category', 'sub_category.category_id', '=', 'category.category_id')
         ->where('category.name', $this->CATEGORY['PRODUCT'])->select("sub_category.*")->get();
         $category_id = DB::table('sub_category')->where('sub_category_id', $sub_category_id)->first()->category_id;
+        $category_name = DB::table('category')->where('category_id', $category_id)->first()->name;
         $sub_categories = DB::table('sub_category')->where('category_id', $category_id)->get();
-        return view('customer/ProductList',compact('products', 'product_sub_categories', 'orderBy', 'sub_category_id', 'sub_categories'));
+        $sub_category_name = DB::table('sub_category')->where('sub_category_id', $sub_category_id)->first()->name;
+        return view('customer/ProductList',compact('products', 'category_name', 'product_sub_categories', 'orderBy', 'sub_category_id', 'sub_categories', 'sub_category_name'));
     }
 
     // detail product

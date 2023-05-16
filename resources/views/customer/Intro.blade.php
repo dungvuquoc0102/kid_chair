@@ -29,25 +29,25 @@
 		<div class="container">
 			<div class="intro-desc-cover">
 				<div class="box-cover">
-					<a href="intro_2.html" class="box-img box-shadow-hover">
+					<a href="{{ url('Intro/Detail') }}" class="box-img box-shadow-hover">
 						<img src="images/intro_2/img-box-1.png" alt="">
 						<h2>KissCat Việt Nam</h2>
 					</a>
 				</div>
 				<div class="box-cover">
-					<a href="intro_2.html" class="box-img box-shadow-hover">
+					<a href="{{ url('Intro/Detail') }}" class="box-img box-shadow-hover">
 						<img src="images/intro_2/img-box-2.png" alt="">
 						<h2>Công nghệ</h2>
 					</a>
 				</div>
 				<div class="box-cover">
-					<a href="intro_2.html" class="box-img box-shadow-hover">
+					<a href="{{ url('Intro/Detail') }}" class="box-img box-shadow-hover">
 						<img src="images/intro_2/img-box-3.png" alt="">
 						<h2>Danh sách đại lý</h2>
 					</a>
 				</div>
 				<div class="box-cover">
-					<a href="intro_2.html" class="box-img box-shadow-hover">
+					<a href="{{ url('Intro/Detail') }}" class="box-img box-shadow-hover">
 						<img src="images/intro_2/img-box-4.png" alt="">
 						<h2>Trung tâm bảo dưỡng - sửa chữa</h2>
 					</a>

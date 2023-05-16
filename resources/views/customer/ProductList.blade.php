@@ -16,26 +16,24 @@
 				<div class="category-heading">
 					<div class="category-heading-left">
 						
-						<div class="category-title">Ghế ngồi</div>
+						<div class="category-title">{{ $sub_category_name }}</div>
 						<div class="category-desc">
-							<a href=""> Trang chủ</a>
+							<a href="{{ url('/') }}"> Trang chủ</a>
 							<span> / </span>
-							<a href=""> Sản phẩm</a>
-							<span> / </span>
-							<a href=""> Ghế ngồi</a>
+							<a href="#"> {{ $category_name }}</a>
 						</div>
 					
 					</div>
 					<div class="category-heading-right">
-						<select class="category-select" name="news" id="category-news">
-							<option <?php if(strcmp($orderBy, "product_id")==0) echo "selected" ?> value="product_id">Mới nhất</option>
-							<option <?php if(strcmp($orderBy, "price")==0) echo "selected" ?> value="price">Giá từ cao đến thấp</option>
+						<select class="category-select" name="news" id="product-list">
+							<option <?php if(strcmp($orderBy, "product_id")==0) echo "selected" ?> value="{{ $sub_category_id }}/product_id">Mới nhất</option>
+							<option <?php if(strcmp($orderBy, "price")==0) echo "selected" ?> value="{{ $sub_category_id }}/price">Giá từ cao đến thấp</option>
 						</select>
 					</div>
 				</div>
 				<div class="category-content">
 					<div class="category-content-left">
-						<p class="content-title">Danh mục sản phẩm</p>
+						<p class="content-title">Danh mục</p>
 						<ul class="content-title-list">
 							@foreach($sub_categories as $product_sub_category)
 								<li   class="content-item {{ $product_sub_category->sub_category_id == $sub_category_id ? 'is-bold' : '' }}">
@@ -50,8 +48,10 @@
 					<div class="category-content-right">
 						@foreach($products as $product)
 							<a class="product-item" href="/ProductDetail/{{$product->product_id}}">
-								<img src="{{URL::asset($product->image)}}" alt=""
-									class="category-product-img" style="height: 300px; width: 100%;">
+								<div class="product-img">
+									<img src="{{URL::asset($product->image)}}" alt=""
+										class="category-product-img" style="">
+								</div>
 								<div class="category-product-detail">
 									<p class="category-product-name">{{$product->name}}</p>
 									<div class="category-product-price"><span class="price-number"> {{ number_format($product->price, 0) }}
@@ -61,7 +61,7 @@
 						@endforeach
 					</div>
 				</div>
-				<div class="m-2 d-flex justify-content-center">{{$products->links()}}</div>
+				<div class="products-paginate">{{$products->links()}}</div>
 			</div>
 		</div>
 	</section>
